@@ -1,0 +1,10 @@
+
+gzip compress speed: 45 MB/s
+rate 8.3
+22870588 gz.gz
+gzip decompress speed: 163 MB/s
+lz4 compress speed: 491 MB/s
+rate 6.0
+31807005 lz4.lz4
+
+lz4 decompress speed: 624 MB/s

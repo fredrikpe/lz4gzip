@@ -1,0 +1,60 @@
+#!/bin/bash
+FILE="$1"
+wc -c ${FILE}
+
+# Get time as a UNIX timestamp (seconds elapsed since Jan 1, 1970 0:00 UTC)
+T="$(date +%s%3N)"
+
+
+
+gzip < ${FILE} > gz.gz
+#taskset 0x1 GZ
+
+T="$(($(date +%s%3N)-T))"
+S="$((181000 / T))"
+echo "gzip compress speed: ${S} MB/s"
+wc -c gz.gz
+
+T="$(date +%s%3N)"
+
+gzip -d gz.gz > gz.json
+#taskset 0x1 GZ
+
+T="$(($(date +%s%3N)-T))"
+S="$((181000 / T))"
+echo "gzip decompress speed: ${S} MB/s"
+
+
+#LZ4
+T2="$(date +%s%3N)"
+
+lz4c < ${FILE} > lz4.lz4
+#taskset 0x1 LZ4
+
+T2="$(($(date +%s%3N)-T2))"
+S="$((181000 / T2))"
+echo "lz4 compress speed: ${S} MB/s"
+wc -c lz4.lz4
+
+
+T2="$(date +%s%3N)"
+
+lz4c -d lz4.lz4 > lz4.json
+#taskset 0x1 LZ4
+
+T2="$(($(date +%s%3N)-T2))"
+S="$((181000 / T2))"
+echo "lz4 decompress speed: ${S} MB/s"
+
+T2="$(date +%s%3N)"
+
+lz4c -9 < ${FILE} > lz4hc.lz4
+#taskset 0x1 LZ4
+
+T2="$(($(date +%s%3N)-T2))"
+S="$((181000 / T2))"
+echo "lz4hc compress speed: ${S} MB/s"
+wc -c lz4hc.lz4
+
+rm lz*
+rm gz*

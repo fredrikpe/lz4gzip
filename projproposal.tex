@@ -1,0 +1,49 @@
+\documentclass[11pt]{article}
+\usepackage{hyperref}
+%Gummi|065|=)
+\title{\textbf{Project Proposal LZ4 vs. GZIP comparison}}
+\author{Alan Ghobadi \\ Fredrik Ingebrigtsen}
+\date{}
+\begin{document}
+
+\maketitle
+
+\section{Proposal}
+
+For this project the two lossless compression formats gzip \cite{gzipw} and LZ4 \cite{LZ4} will be compared in different experiments. Speed, compression ratio as well as resource allocation will be taken into account. Real world text data will be compared, such as JSON-documents. Gzip is a well established algorithm and is widely used. This project will compare gzip to the new contender LZ4 to see if there are any  advantages of using LZ4.
+
+\subsection{Specifications}
+In conducting the experiments the following computer will be used: Macbook Pro, 2.8 GHz Intel Core i7, 8 GB 1600 MHz DDR3, OS X Yosemite.
+
+The datasets compared will be structured documents, mainly JSON-documents of different kinds and HTML-documents.
+\section{Compression algorithms}
+Both of the lossless compression algrithms focuses primarily on speed over compression ratio.
+\subsection{Gzip}
+Gzip is a compression format based on the compression algorithm DEFLATE \cite{def} wich combines LZ77 \cite{lz} and Huffman coding \cite{huff}. The format was developed by the GNU project for UNIX systems.
+
+Gzip is commonly used in the real world for many different applications. It can be used by web servers to deliver compressed responses (if the browsersupports this) to saved bandwidth. For example to deliver large JSON- or XML-documents over HTTP.
+
+\subsection{LZ4} 
+The LZ4 compression algorithm is a relatively new compression algorithm based on previous LZ-algorithms and was first released in 2011 \cite{LZ4}. There is a reference implemetation in C \cite{cimp} and there are also implemetations in other languages such as node.js \cite{njs}.
+
+\begin{thebibliography}{1}
+
+  \bibitem{def} Deflate. \url{http://en.wikipedia.org/wiki/DEFLATE}, 2015. [Online; 2015-04-16].
+  
+  \bibitem{huff} Huffman coding. \url{http://en.wikipedia.org/wiki/Huffman_coding}, 2015.[Online;2015-04-16].
+  
+  \bibitem{cimp} LZ4 C reference implementation. \url{https://github.com/Cyan4973/lz4}, 2015. [Online; 2014-12-17].
+
+  \bibitem{LZ4} LZ4 compression algorithm. \url{http://en.wikipedia.org/wiki/LZ4_(compression_algorithm)}, 2015. [Online; 2015-04-16].
+  
+  \bibitem{njs} LZ4 node.js reference implementation. \url{https://github.com/pierrec/node-lz4}, 2015. [Online; 2014-
+12-17].
+
+  \bibitem{lz} LZ77 and lZ78. \url{http://en.wikipedia.org/wiki/LZ77_and_LZ78}, 2015.
+[Online; 2015-04-16].
+
+  \bibitem{gzipw} Mark Adler Jean-loup Gailly. The gzip homepage. \url{http://www.gzip.org/},
+2015. [Online; 2015-04-16].
+
+\end{thebibliography}
+\end{document}
