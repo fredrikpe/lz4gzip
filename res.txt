@@ -1,10 +1,11 @@
 
+189778220 citylots.json
 gzip compress speed: 45 MB/s
-rate 8.3
 22870588 gz.gz
-gzip decompress speed: 163 MB/s
-lz4 compress speed: 491 MB/s
-rate 6.0
+gzip decompress speed: 182 MB/s
+lz4 compress speed: 498 MB/s
 31807005 lz4.lz4
-
-lz4 decompress speed: 624 MB/s
+                                                                    
+lz4 decompress speed: 637 MB/s
+lz4hc compress speed: 46 MB/s
+24794135 lz4hc.lz4
